@@ -21,5 +21,10 @@ export async function logout() {
 
 export async function getStoryById(id) {
   const response = await client.from('stories').select('*').match({ id });
-  return response;
+  return response.data;
+}
+
+export async function getAllStories() {
+  const response = await client.from('stories').select('*');
+  return response.data;
 }

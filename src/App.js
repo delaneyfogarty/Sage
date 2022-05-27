@@ -2,11 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { getStoryById } from './services/supabase';
-import Book from './Book';
+import { getStoryById, getAllStories } from './services/supabase';
+import { convertText } from './services/fetch-utils';
 
 function App() {
-  const [book, setBook] = useState('');
+  const [books, setBooks] = useState([]);
 
   /* 
   const story = await getStoryById(storyId)
@@ -16,16 +16,23 @@ function App() {
 
   useEffect(() => {
     async function fetch() {
-      const story = await getStoryById(1);
-      console.log(story);
-      setBook(story);
+      const story = await getAllStories();
+      setBooks(story);
     }
     fetch();
-  }, [book]);
+  }, [books]);
 
   return (
     <div className="App">
-      <Book book={book} />
+      <div>
+        {books.map((book, i) => (
+          <>
+            <div key={book + i} book={book} />
+            <h2>{book.title}</h2>
+            <p>{book.story_text}</p>
+          </>
+        ))}
+      </div>
     </div>
   );
 }

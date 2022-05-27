@@ -1,5 +1,5 @@
-//
-
-export async function convertText(//call text from supabase) {
-  //hiting nelify end point 
+export async function convertText(story) {
+  const storyRequest = await fetch(`/.netlify/functions/supreme?context=${story}`);
+  const data = await storyRequest.json();
+  return data;
 }

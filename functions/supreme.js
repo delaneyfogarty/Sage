@@ -1,30 +1,40 @@
 const fetch = require('node-fetch');
 require('dotenv').config();
+const encodedParams = new URLSearchParams();
+encodedParams.append('content', 'one day, winnie the pooh went frolicking in the woods');
+encodedParams.append('response_type', 'html');
+encodedParams.append('request_type', 'html');
+encodedParams.append('fixation', '1');
+encodedParams.append('saccade', '10');
+
+const key = `${process.env.SUPREME_KEY}`;
+
+const options = {
+  method: 'POST',
+  headers: {
+    'content-type': 'application/x-www-form-urlencoded',
+    'X-RapidAPI-Host': 'bionic-reading1.p.rapidapi.com',
+    'X-RapidAPI-Key': key,
+  },
+  body: encodedParams,
+};
 
 const headers = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-
-  'content-type': 'application/x-www-form-urlencoded',
-  'X-RapidAPI-Host': 'bionic-reading1.p.rapidapi.com',
-  'X-RapidAPI-Key': 'SUPREME_KEY',
 };
 
 exports.handler = async (event, context) => {
   try {
-    const response = await fetch(
-      `https://bionic-reading1.p.rapidapi.com/convert?content=${event.queryStringParameters.story}?response_type=html?request_type=html?fixation=1?saccade=10`,
-      { method: 'POST' }
-    );
-    const data = await response.json();
-    const json = JSON.stringify(data);
-    //line 14 is because this is how netlify reads our data
+    const response = await fetch(`https://bionic-reading1.p.rapidapi.com/convert`, options);
+    const data = await response.text();
+    const text = JSON.stringify(data);
 
     return {
       statusCode: 200,
       headers,
-      body: json,
+      body: text,
     };
   } catch (error) {
     console.log(error);

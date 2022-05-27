@@ -17,22 +17,23 @@ function App() {
   useEffect(() => {
     async function fetch() {
       const story = await getAllStories();
-      setBooks(story);
+      const convertedStory = await convertText(story[0].story_text);
+      setBooks(convertedStory);
     }
     fetch();
-  }, [books]);
+  }, []);
 
   return (
     <div className="App">
-      <div>
-        {books.map((book, i) => (
+      <div dangerouslySetInnerHTML={{ __html: books }} />
+
+      {/* {books.map((book, i) => ( }
           <>
             <div key={book + i} book={book} />
             <h2>{book.title}</h2>
             <p>{book.story_text}</p>
           </>
-        ))}
-      </div>
+        ))} */}
     </div>
   );
 }

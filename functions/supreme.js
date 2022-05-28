@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 require('dotenv').config();
+
 const encodedParams = new URLSearchParams();
 encodedParams.append('content', 'one day, winnie the pooh went frolicking in the woods');
 encodedParams.append('response_type', 'html');

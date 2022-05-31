@@ -27,14 +27,14 @@ function App() {
   return (
     <div className="App">
       <div dangerouslySetInnerHTML={{ __html: books }} />
-
-      {books.map((book, i) => (
+      
+      {/* {books.map((book, i) => (
         <>
           <div key={book + i} book={book} />
           <h2>{book.title}</h2>
           <p>{book.story_text}</p>
         </>
-      ))}
+      ))} */}
     </div>
   );
 }

@@ -10,11 +10,11 @@ export async function getUser() {
 // }
 
 export async function signUpUser(email, password) {
-  const { user, error } = await client.auth.signUp({ email, password });
+  const response = await client.auth.signUp({ email, password });
 
-  if (error) return error;
+  //if (error) return error;
 
-  return user;
+  return response.user;
 }
 
 export async function signInUser(email, password) {
@@ -38,11 +38,21 @@ export async function getAllStories() {
 }
 
 export async function getStoryReader(id) {
-  const response = await client.from('story_readers').match({ id });
+  const response = await client.from('story_readers_two').match({ id });
+  return response;
+}
+
+export async function createProfile(reader) {
+  const response = await client.from('story_readers_two').insert({
+    name: reader.name,
+    avatar: reader.avatar,
+    email: reader.email,
+    user_id: reader.user_id,
+  });
   return response.data;
 }
 
 export async function updateProfile(id, reader) {
-  const response = await client.from('story_readers').update(reader).match({ id });
-  return response.data;
+  const response = await client.from('story_readers_two').update(reader).match({ id });
+  return response;
 }

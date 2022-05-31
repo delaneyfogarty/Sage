@@ -1,59 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import { getStoryReader, updateProfile } from './services/supabase';
+import React, { useState } from 'react';
+import { createProfile } from './services/supabase';
 
 export default function ProfilePage() {
   const [formName, setFormName] = useState('');
   const [avatar, setAvatar] = useState('');
-  const [reader, setReader] = useState('');
 
-  useEffect(() => {
-    async function fetch() {
-      const data = await getStoryReader();
-      setReader(data);
-    }
-    fetch();
-  }, []);
-
-  async function handleSubmitName(e) {
+  async function handleCreateProfile(e) {
+    console.log('function call');
     e.preventDefault();
-    await updateProfile({
+    await createProfile({
       name: formName,
-    });
-  }
-
-  async function handleSubmitAvatar(e) {
-    e.preventDefault();
-    await updateProfile({
       avatar: avatar,
     });
+    setFormName('');
+    setAvatar('');
   }
 
   return (
     <div>
-      <form onSubmit={handleSubmitName}>
+      <form onSubmit={handleCreateProfile}>
         <label>
           Name:
-          <input value={formName} onChange={(e) => setFormName(e.target.value)}>
-            {' '}
-          </input>
+          <input value={formName} onChange={(e) => setFormName(e.target.value)} />
         </label>
-      </form>
-
-      <form onSubmit={handleSubmitAvatar}>
         <label>
-          {' '}
           Pick Your Emoji
-          <select>
-            <option value="🐌"> snail </option>
+          <select onChange={(e) => setAvatar(e.target.value)}>
+            <option value="🐌">snail</option>
             <option value="🧞">genie </option>
             <option value="🧝‍♂️">elf </option>
             <option value="🧚">fairy</option>
             <option value="🦖">dinosaur</option>
           </select>
         </label>
+        <button>Submit Profile</button>
+        <div>
+          <p>{avatar}</p>
+          <p>{formName}</p>
+        </div>
       </form>
-
-      <button> Submit Profile</button>
     </div>
   );
 }

@@ -1,63 +1,34 @@
 import React, { useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
-import { signUpUser, signInUser } from './services/supabase';
+import { signUpUser, signInUser, getUser } from './services/supabase';
 
 export default function AuthPage({ setEmail, setToken }) {
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');
-  const [signInEmail, setSignInEmail] = useState('');
-  const [signInPassword, setSignInPassword] = useState('');
 
-  // const [{ email: signInEmail, password: signInPassword }, setSignInFormData] = useState({
-  //   email: '',
-  //   password: '',
-  // });
-
-  // async function handleSignUpSubmit(e) {
-  //   e.preventDefault();
-
-  //   await signUpUser(signUpEmail, signUpPassword);
-
-  //   const {
-  //     access_token,
-  //     user: { email },
-  //   } = getUser();
-
-  //   setEmail(email);
-  //   setToken(access_token);
-  // }
-
-  // async function handleSignInSubmit(e) {
-  //   e.preventDefault();
-
-  //   await signInUser(signInEmail, signInPassword);
-
-  //   const {
-  //     access_token,
-  //     user: { email },
-  //   } = getUser();
-
-  //   setEmail(email);
-  //   setToken(access_token);
-  // }
-  async function handleSignUpSubmit(e) {
-    e.preventDefault();
-    const { user } = await signUpUser(signUpEmail, signUpPassword);
-    setUser(user);
-  }
+  const [{ email: signInEmail, password: signInPassword }, setSignInFormData] = useState({
+    email: '',
+    password: '',
+  });
 
   async function handleSignUpSubmit(e) {
     e.preventDefault();
 
     await signUpUser(signUpEmail, signUpPassword);
 
-    const {
-      access_token,
-      user: { email },
-    } = getUser();
+    const user = await getUser();
+    setEmail(user.email);
+    setToken(user.access_token);
+  }
 
-    setEmail(email);
-    setToken(access_token);
+  async function handleSignInSubmit(e) {
+    e.preventDefault();
+
+    await signInUser(signInEmail, signInPassword);
+
+    const user = await getUser();
+    setEmail(user.email);
+    setToken(user.access_token);
   }
 
   return (

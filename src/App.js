@@ -11,30 +11,23 @@ import DetailPage from './DetailPage';
 import AboutUs from './AboutUs';
 
 function App() {
-  // const [email, setEmail] = useState('');
-  // const [token, setToken] = useState('');
-
-  const [user, setUser] = useState(null);
-
-  // useEffect(() => {
-  //   const user = getUser();
-
-  //   if (user) {
-  //     setToken(user.access_token);
-  //     setEmail(user.email);
-  //   }
-  // }, []);
+  const [email, setEmail] = useState('');
+  const [token, setToken] = useState('');
 
   useEffect(() => {
-    async function userInformation() {
-      const user = await getUser();
+    const user = getUser();
 
-      if (user) {
-        setUser(user);
-      }
+    if (user) {
+      setToken(user.access_token);
+      setEmail(user.email);
     }
-    userInformation();
   }, []);
+
+  async function handleLogout() {
+    await logout();
+    setEmail('');
+    setToken('');
+  }
 
   return (
     <>
@@ -57,7 +50,7 @@ function App() {
               <li>
                 <p>{email}</p>
                 <p>{token}</p>
-                <button onClick={logout}>Log out</button>
+                <button onClick={handleLogout}>Log out</button>
               </li>
             </ul>
           </nav>

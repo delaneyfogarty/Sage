@@ -1,41 +1,84 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { getStoryById, getAllStories } from './services/supabase';
-import { convertText } from './services/fetch-utils';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { logout } from './services/supabase';
+// import { convertText } from './services/fetch-utils';
+import AuthPage from './AuthPage';
+import ProfilePage from './ProfilePage';
+import FavoritesPage from './FavoritesPage';
+import DetailPage from './DetailPage';
+import AboutUs from './AboutUs';
 
 function App() {
-  const [books, setBooks] = useState([]);
-  console.log('books', books);
-  /*
-  const story = await getStoryById(storyId)
-
-  First use effect to call fetch function
-  */
-
-  useEffect(() => {
-    async function fetch() {
-      const story = await getAllStories();
-      const convertedStory = await convertText(story[0].story_text);
-      console.log(convertedStory, 'converted Story');
-      setBooks(convertedStory);
-    }
-    fetch();
-  }, []);
-
+  const [email, setEmail] = useState();
+  const [token, setToken] = useState();
+  
   return (
-    <div className="App">
-      <div dangerouslySetInnerHTML={{ __html: books }} />
-      
-      {/* {books.map((book, i) => (
-        <>
-          <div key={book + i} book={book} />
-          <h2>{book.title}</h2>
-          <p>{book.story_text}</p>
-        </>
-      ))} */}
-    </div>
+    <> 
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Library</Link>
+              </li>
+              <li>
+                <Link to="/favorites">Favorites</Link>
+              </li>
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <Link to="/about">About Us</Link>
+              </li>
+              <li>
+                <p>{email}</p>
+                <p>{token}</p>
+                <button onClick={logout}>Log out</button>
+              </li>
+            </ul>
+          </nav>
+          <Switch>
+            <Route exact path="/">
+              {
+                token 
+                  ? <Redirect to="/library" /> 
+                  : <AuthPage setEmail={setEmail} setToken={setToken} />
+              }
+            </Route>
+            <Route exact path="/profile">
+              {
+                token 
+                  ? <ProfilePage /> 
+                  : <Redirect to='/' />
+              }
+            </Route>
+            <Route exact path="/favorites">
+              {
+                token 
+                  ? <FavoritesPage /> 
+                  : <Redirect to='/' />
+              }          
+            </Route>
+            <Route exact path="/library/:id">
+              {
+                token 
+                  ? <DetailPage /> 
+                  : <Redirect to='/' />
+              }              
+            </Route>
+            <Route exact path="/about">
+              {
+                token 
+                  ? <AboutUs /> 
+                  : <Redirect to='/' />
+              }          
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </>
   );
 }
 

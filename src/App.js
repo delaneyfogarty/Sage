@@ -1,8 +1,8 @@
 // import logo from './logo.svg';
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
-import { logout } from './services/supabase';
+import { logout, getUser } from './services/supabase';
 // import { convertText } from './services/fetch-utils';
 import AuthPage from './AuthPage';
 import ProfilePage from './ProfilePage';
@@ -11,11 +11,33 @@ import DetailPage from './DetailPage';
 import AboutUs from './AboutUs';
 
 function App() {
-  const [email, setEmail] = useState();
-  const [token, setToken] = useState();
-  
+  // const [email, setEmail] = useState('');
+  // const [token, setToken] = useState('');
+
+  const [user, setUser] = useState(null);
+
+  // useEffect(() => {
+  //   const user = getUser();
+
+  //   if (user) {
+  //     setToken(user.access_token);
+  //     setEmail(user.email);
+  //   }
+  // }, []);
+
+  useEffect(() => {
+    async function userInformation() {
+      const user = await getUser();
+
+      if (user) {
+        setUser(user);
+      }
+    }
+    userInformation();
+  }, []);
+
   return (
-    <> 
+    <>
       <Router>
         <div>
           <nav>
@@ -41,39 +63,23 @@ function App() {
           </nav>
           <Switch>
             <Route exact path="/">
-              {
-                token 
-                  ? <Redirect to="/library" /> 
-                  : <AuthPage setEmail={setEmail} setToken={setToken} />
-              }
+              {token ? (
+                <Redirect to="/profile" />
+              ) : (
+                <AuthPage setEmail={setEmail} setToken={setToken} />
+              )}
             </Route>
             <Route exact path="/profile">
-              {
-                token 
-                  ? <ProfilePage /> 
-                  : <Redirect to='/' />
-              }
+              {token ? <ProfilePage /> : <Redirect to="/" />}
             </Route>
             <Route exact path="/favorites">
-              {
-                token 
-                  ? <FavoritesPage /> 
-                  : <Redirect to='/' />
-              }          
+              {token ? <FavoritesPage /> : <Redirect to="/" />}
             </Route>
             <Route exact path="/library/:id">
-              {
-                token 
-                  ? <DetailPage /> 
-                  : <Redirect to='/' />
-              }              
+              {token ? <DetailPage /> : <Redirect to="/" />}
             </Route>
             <Route exact path="/about">
-              {
-                token 
-                  ? <AboutUs /> 
-                  : <Redirect to='/' />
-              }          
+              {token ? <AboutUs /> : <Redirect to="/" />}
             </Route>
           </Switch>
         </div>

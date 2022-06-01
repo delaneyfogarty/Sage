@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { getStoryById } from './services/supabase';
 import { useParams } from 'react-router-dom';
 import { convertText } from './services/fetch-utils';
@@ -11,7 +10,6 @@ export default function DetailPage() {
   useEffect(() => {
     async function fetch() {
       const storyData = await getStoryById(params.id);
-      console.log(storyData, 'story data');
       const convertedStory = await convertText(storyData.story_text);
       setStory(convertedStory);
     }

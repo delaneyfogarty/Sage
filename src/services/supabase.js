@@ -45,17 +45,13 @@ export async function getAllStories(page) {
   return { ...response, lastPage };
 }
 
-export async function addToLibrary(story_id) {
-  const response = await client
-    .from('stories_junction')
-    .insert(story_id)
-    .match({
-      story_reader_id: story_id.story_reader_id,
-    })
-    .single();
+export async function addToLibrary(id) {
+  const response = await client.from('stories_junction').insert({ story_id: id });
 
   return response.data;
 }
+
+//story_reader_id: story_id.story_reader_id,
 
 export async function getLibraryBooks() {
   const response = await client.from('stories_junction').select('*');

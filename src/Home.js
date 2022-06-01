@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useHistory } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import StoryList from './StoryList';
 import { getAllStories } from './services/supabase';

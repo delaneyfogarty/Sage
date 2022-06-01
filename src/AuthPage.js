@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useRouteMatch } from 'react-router-dom';
 import { signUpUser, signInUser, getUser } from './services/supabase';
 
 export default function AuthPage({ setEmail, setToken }) {

@@ -57,8 +57,24 @@ export async function addToLibrary(story_id) {
   return response.data;
 }
 
+export async function getLibraryBooks() {
+  const response = await client.from('stories_junction').select('*');
+
+  return response.data;
+}
+
 export async function deleteFromLibrary(id) {
   const response = await client.from('stories_junction').delete().match({ id });
+
+  return response.data;
+}
+
+export async function readStory(id) {
+  const response = await client
+    .from('stories_junction')
+    .update({ is_read: true })
+    .match({ id })
+    .single();
 
   return response.data;
 }

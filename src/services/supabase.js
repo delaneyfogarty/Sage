@@ -1,4 +1,4 @@
-import { client } from './client';
+import { client, checkError } from './client';
 
 export async function getUser() {
   return client.auth.session();
@@ -28,13 +28,21 @@ export async function logout() {
 }
 
 export async function getStoryById(id) {
-  const response = await client.from('stories').select('*').match({ id });
-  return response.data;
+  const response = await client.from('stories').select('*').match({ id }).single();
+  return checkError(response);
 }
 
-export async function getAllStories() {
-  const response = await client.from('stories').select('*');
-  return response.data;
+export async function getAllStories(page) {
+  const numPerPage = 2;
+  const start = (page - 1) * numPerPage;
+  const response = await client
+    .from('stories')
+    .select('*', { count: 'exact' })
+    .range(start, start + numPerPage - 1);
+
+  const lastPage = Math.ceil(response.count / numPerPage);
+
+  return { ...response, lastPage };
 }
 
 // export async function getStoryReader(id) {

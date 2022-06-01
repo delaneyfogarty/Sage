@@ -1,7 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import StoryList from './StoryList';
+import { getAllStories } from './services/supabase';
 
 export default function Home() {
-  return <div>Home</div>;
+  const [stories, setStories] = useState([]);
+  const [lastPage, setLastPage] = useState(20);
+  const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    async function fetch() {
+      const allBooks = await getAllStories(page);
+
+      setStories(allBooks.body);
+      setLastPage(allBooks.lastPage);
+    }
+
+    fetch();
+  }, [page]);
+
+  return (
+    <><header className='home-header'> 
+      <h2>Page {page}</h2>
+      <div className='buttons'>
+        <button disabled={page <= 1} onClick={() => setPage(page - 1)}>Previous Page</button>
+        <button disabled={page >= lastPage} onClick={() => setPage(page + 1)}>Next Page</button>
+      </div>
+    </header>
+    <body className='home-body'> 
+      <StoryList stories={stories} />
+    </body>
+    </>
+  );
 }
 
 // // call text located in supabase

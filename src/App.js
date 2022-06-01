@@ -54,7 +54,7 @@ function App() {
               </li>
               <li>
                 <p>{email}</p>
-                <p>{token}</p>
+                {/* <p>{token}</p> */}
                 <button onClick={handleLogout}>Log out</button>
               </li>
             </ul>

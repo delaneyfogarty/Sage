@@ -45,6 +45,24 @@ export async function getAllStories(page) {
   return { ...response, lastPage };
 }
 
+export async function addToLibrary(story_id) {
+  const response = await client
+    .from('stories_junction')
+    .insert(story_id)
+    .match({
+      story_reader_id: story_id.story_reader_id,
+    })
+    .single();
+
+  return response.data;
+}
+
+export async function deleteFromLibrary(id) {
+  const response = await client.from('stories_junction').delete().match({ id });
+
+  return response.data;
+}
+
 // export async function getStoryReader(id) {
 //   const response = await client.from('story_readers_two').match({ id: id });
 //   return response;

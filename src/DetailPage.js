@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getStoryById } from './services/supabase';
 import { useParams } from 'react-router-dom';
+import { convertText } from './services/fetch-utils';
 
 export default function DetailPage() {
   const [story, setStory] = useState({});
@@ -10,8 +11,9 @@ export default function DetailPage() {
   useEffect(() => {
     async function fetch() {
       const storyData = await getStoryById(params.id);
-
-      setStory(storyData);
+      console.log(storyData, 'story data');
+      const convertedStory = await convertText(storyData.story_text);
+      setStory(convertedStory);
     }
 
     fetch();
@@ -22,17 +24,16 @@ export default function DetailPage() {
   }
 
   return (
-    <>
-      <Link to='/'>Home</Link>
-      <div className='story-detail' onClick={handleStoryClick}>
-        <div className='story-data'>
-          <h2>{story.title}</h2>
-          <h3>by {story.author}</h3>
-          <img className='story-images' src={`./images/${story.title}.png`}/>
-        </div>
+    <div className="story-data">
+      <div dangerouslySetInnerHTML={{ __html: story }} />
 
+      <div className="story-detail" onClick={handleStoryClick}>
+        <h2>{story.title}</h2>
+        <h3>by {story.author}</h3>
+        <p>{story.story_text}</p>
+        <img className="story-images" src={`./images/${story.title}.png`} />
       </div>
-    </>
+    </div>
   );
 }
 

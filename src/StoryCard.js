@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { addToLibrary } from './services/supabase';
+import { addToLibrary, deleteFromLibrary } from './services/supabase';
 
 export default function StoryCard({ title, author, id }) {
   async function handleClick() {
     // const libraryItem = await addToLibrary(id);
     await addToLibrary(id);
-    return (window.location.href = './library');
   }
   return (
     <>

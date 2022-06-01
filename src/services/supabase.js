@@ -37,10 +37,10 @@ export async function getAllStories() {
   return response.data;
 }
 
-export async function getStoryReader(id) {
-  const response = await client.from('story_readers_two').match({ id });
-  return response;
-}
+// export async function getStoryReader(id) {
+//   const response = await client.from('story_readers_two').match({ id: id });
+//   return response;
+// }
 
 export async function createProfile(reader) {
   const response = await client.from('story_readers_two').insert({
@@ -53,6 +53,14 @@ export async function createProfile(reader) {
 }
 
 export async function updateProfile(id, reader) {
-  const response = await client.from('story_readers_two').update(reader).match({ id });
+  const response = await client
+    .from('story_readers_two')
+    .update({
+      name: reader.name,
+      avatar: reader.avatar,
+      email: reader.email,
+      user_id: reader.user_id,
+    })
+    .match({ id: id });
   return response;
 }

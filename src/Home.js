@@ -1,3 +1,9 @@
+import React from 'react';
+
+export default function Home() {
+  return <div>Home</div>;
+}
+
 // // call text located in supabase
 // //
 // const [books, setBooks] = useState([]);

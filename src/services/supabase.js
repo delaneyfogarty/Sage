@@ -60,7 +60,7 @@ export async function getLibraryBooks() {
 }
 
 export async function deleteFromLibrary(id) {
-  const response = await client.from('stories_junction_two').delete().match({ id });
+  const response = await client.from('stories_junction_two').delete().match({ story_id: id });
 
   return response.data;
 }

@@ -34,28 +34,28 @@ function App() {
   return (
     <>
       <Router>
-        <div>
+        <header>
           <nav>
-            <ul>
-              <li>
+            <ul className='links'>
+              <li className='navlink'>
                 <Link to="/home">Home</Link>
               </li>
-              <li>
+              <li className='navlink'>
                 <Link to="/library">Library</Link>
               </li>
-              <li>
+              <li className='navlink'>
                 <Link to="/profile">Profile</Link>
               </li>
-              <li>
+              <li className='navlink'>
                 <Link to="/update">Update Profile</Link>
               </li>
-              <li>
+              <li className='navlink'>
                 <Link to="/about">About Us</Link>
               </li>
-              <li>
+              <li className='navlink'>
                 <p>{email}</p>
                 {/* <p>{token}</p> */}
-                <button onClick={handleLogout}>Log out</button>
+                <button className="button-55" role="button" onClick={handleLogout}>Logout</button>
               </li>
             </ul>
           </nav>
@@ -86,7 +86,7 @@ function App() {
               {token ? <Home /> : <Redirect to="/" />}
             </Route>
           </Switch>
-        </div>
+        </header>
       </Router>
     </>
   );

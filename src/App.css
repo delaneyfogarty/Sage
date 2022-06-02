@@ -50,14 +50,190 @@ body {
   background-color: var(--color1);
 }
 
-.story-cards {
+.story-list {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 40px;
   background-size: cover;
   height: calc(100vh - 80px);
-  align-content: flex-start;
+  align-content: space-around;
 }
+
+
+
+.story-card img {
+  width: 100px;
+}
+
+/* .story-tile {
+  display: flex;
+  flex-direction: row;
+} */
+
+.story-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Space and Astronomy';
+}
+
+.links {
+  /* display: flex;
+  flex-direction: row;
+  padding-right: 300px; */
+  text-align: center;
+  display: inline-flex;
+}
+
+.navlink {
+  display: flex;
+  flex-direction: row;
+  padding-left: 100px;
+}
+
+a:link{
+  text-decoration: none;
+  color:green;
+} 
+
+a:active{
+  text-decoration: none;
+  color:green;
+}
+
+a:hover{
+  text-decoration: none;
+  color:darkgreen
+}
+
+a:visited{
+  text-decoration: none;
+  color:green;
+}
+
+/* 
+<!-- HTML !-->
+<button class="button-55" role="button">Button 55</button> */
+
+/* CSS */
+.button-55 {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 20px;
+  outline: none;
+  padding: .25rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-55:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-55:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+.button-54 {
+  align-self: center;
+  background-color: rgb(243, 217, 178);
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: .7rem;
+  line-height: 20px;
+  outline: none;
+  padding: .25rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-54:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-54:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+
+header {
+  max-height: 20px;
+}
+
+.page {
+  margin: 0px;
+}
+
+.auth-page {
+  display: flex;
+  flex-wrap: wrap;
+  background-size: cover;
+  height: calc(100vh - 80px);
+  align-content: center;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+/* 
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center; */
+
+.auth-page form *, .auth-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.auth-page div {
+  border: 2px groove rgb(47, 26, 1);
+  border-radius: 10px;
+}
+
 
 .story-card {
   width: 200px;
@@ -69,14 +245,10 @@ body {
   align-items: center;
   padding: 10px;
   color: var(--color4);
+  background-image: url('./bookCover.png');
+  background-size: 220px 244px;
 }
 
-.story-card img {
-  width: 100px;
-}
-
-.story-title {
-  text-transform: uppercase;
-  font-weight: bold;
-  font-family: 'Space and Astronomy';
+.input{
+  background-color: rgb(237, 201, 157);
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import StoryCard from './StoryCard';
-import backgroundImg from '../src/jungle.png';
+import backgroundImg from './jungle.png';
 
 
 export default function StoryList({ stories }) {

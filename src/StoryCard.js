@@ -16,16 +16,18 @@ export default function StoryCard({ title, author, id }) {
   }
   return (
     <>
-      <Link to={`/detail/${id}`}>
-        <div className="story-card">
-          <p className="story-title"> {title} </p>
-          <img className="story-images" src={`./images/${title}.png`} />
-          <p className="story-author"> By {author} </p>
+      <div className='story-card'> 
+        <Link to={`/detail/${id}`}>
+          <div className="story-card">
+            <p className="story-title"> {title} </p>
+            <img className="story-images" src={`./images/${title}.png`} />
+            <p className="story-author"> By {author} </p>
+          </div>
+        </Link>
+        <div>
+          <button onClick={handleAddClick} className="button-54" role="button"> Add to Library </button>
+          <button onClick={handleDeleteClick} className="button-54" role="button"> Delete from Library </button>
         </div>
-      </Link>
-      <div>
-        <button onClick={handleAddClick}> Add to Library </button>
-        <button onClick={handleDeleteClick}> Delete from Library </button>
       </div>
     </>
   );

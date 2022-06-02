@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { signUpUser, signInUser, getUser } from './services/supabase';
+import backgroundImg from './login.png';
+
 
 export default function AuthPage({ setEmail, setToken }) {
   const [signUpEmail, setSignUpEmail] = useState('');
@@ -31,48 +33,52 @@ export default function AuthPage({ setEmail, setToken }) {
   }
 
   return (
-    <div className="auth-page">
-      <form onSubmit={handleSignUpSubmit}>
-        <h4>Sign Up</h4>
-        <label>
+    <div className="auth-page" style={{ backgroundImage: `url(${backgroundImg})` }}>
+      <div className='sign-up'> 
+        <form onSubmit={handleSignUpSubmit}>
+          <h4>Sign Up</h4>
+          <label>
           email
-          <input value={signUpEmail} onChange={(e) => setSignUpEmail(e.target.value)} />
-        </label>
-        <label>
+            <input className='input' value={signUpEmail} onChange={(e) => setSignUpEmail(e.target.value)} />
+          </label>
+          <label>
           password
-          <input value={signUpPassword} onChange={(e) => setSignUpPassword(e.target.value)} />
-        </label>
-        <button>Sign Up</button>
-      </form>
-      <form onSubmit={handleSignInSubmit}>
-        <h4>Sign In</h4>
-        <label>
+            <input className='input' value={signUpPassword} onChange={(e) => setSignUpPassword(e.target.value)} />
+          </label>
+          <button className="button-54" role="button">Sign Up</button>
+        </form>
+      </div>
+      <div className='sign-in'>
+        <form onSubmit={handleSignInSubmit}>
+          <h4>Sign In</h4>
+          <label>
           email
-          <input
-            value={signInEmail}
-            onChange={(e) =>
-              setSignInFormData({
-                email: e.target.value,
-                password: signInPassword,
-              })
-            }
-          />
-        </label>
-        <label>
+            <input className='input'
+              value={signInEmail}
+              onChange={(e) =>
+                setSignInFormData({
+                  email: e.target.value,
+                  password: signInPassword,
+                })
+              }
+            />
+          </label>
+          <label>
           password
-          <input
-            type="password"
-            value={signInPassword}
-            onChange={(e) =>
-              setSignInFormData({
-                email: signInEmail,
-                password: e.target.value,
-              })
-            }
-          />
-        </label>
-        <button>Sign In</button>
-      </form>
+            <input className='input'
+              type="password"
+              value={signInPassword}
+              onChange={(e) =>
+                setSignInFormData({
+                  email: signInEmail,
+                  password: e.target.value,
+                })
+              }
+            />
+          </label>
+          <button className="button-54" role="button">Sign In</button>
+        </form>
+      </div>
     </div>
   );
 }

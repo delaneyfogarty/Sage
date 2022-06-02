@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { readStory } from './services/supabase';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { addToLibrary, deleteFromLibrary } from './services/supabase';
 
 
 export default function StoryCard({ title, author, id, image }) {
   // const { id } = useParams();
-  const [isRead, setIsRead] = useState(false);
+
 
   //const history = useHistory();
   async function handleAddClick() {
@@ -18,16 +17,6 @@ export default function StoryCard({ title, author, id, image }) {
   async function handleDeleteClick() {
     // const libraryItem = await addToLibrary(id);
     await deleteFromLibrary(id);
-  }
-    
-  async function handleReadBook() {
-    await readStory(id, isRead);
-    setIsRead(true);
-  }
-    
-  async function handleUnreadBook() {
-    await readStory(id, isRead);
-    setIsRead(false);
   }
   
   return (
@@ -45,14 +34,7 @@ export default function StoryCard({ title, author, id, image }) {
             {' '}
             Add to Library{' '}
           </button>
-        <button onClick={handleDeleteClick}> Delete from Library </button>
-        </div>
-        <div>
-          <div>
-            {isRead ? '✅' : '📚'}
-          </div>
-          <button onClick={handleReadBook}>I read this book!</button>
-          <button onClick={handleUnreadBook}>Unread book</button>
+          <button onClick={handleDeleteClick}> Delete from Library </button>
         </div>
       </div>
     </>

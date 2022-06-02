@@ -60,7 +60,6 @@ export async function getLibraryBooks() {
       title, author, id, image
       )
     `);
-  console.log(response);
   return response.data;
 }
 
@@ -70,20 +69,29 @@ export async function deleteFromLibrary(id) {
   return response.data;
 }
 
-export async function readStory(id, isRead) {
-  const response = await client
-    .from('stories_junction_two')
-    .update({ is_read: isRead })
-    .match({ story_id: id }) 
-    .single();
-  console.log(response);
-  return response.data;
-}
 
 // export async function getStoryReader(id) {
-//   const response = await client.from('story_readers_two').match({ id: id });
-//   return response;
-// }
+  //   const response = await client.from('story_readers_two').match({ id: id });
+  //   return response;
+  // }
+export async function readStory(id) {
+  const response = await client
+    .from('stories_junction_two')
+    .update({ is_read: true })
+    .match({ story_id: id }) 
+    .single();
+    // console.log(response);
+  return response.data;
+}
+export async function unReadStory(id) {
+  const response = await client
+    .from('stories_junction_two')
+    .update({ is_read: false })
+    .match({ story_id: id }) 
+    .single();
+    // console.log(response);
+  return response.data;
+}
 
 export async function createProfile(reader) {
   const response = await client.from('story_readers_two').insert({

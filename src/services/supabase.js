@@ -57,7 +57,7 @@ export async function getLibraryBooks() {
   const response = await client.from('stories_junction_two').select(`
     story_id, 
     stories(
-      title, author, id
+      title, author, id, image
       )
     `);
   console.log(response);

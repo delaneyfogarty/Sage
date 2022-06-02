@@ -13,9 +13,11 @@ export default function LibraryList({ library, fetchFavorites, handleDelete }) {
           id={libraryBook.id}
           fetchFavorites={fetchFavorites}
           is_read={libraryBook.is_read}
+          image={libraryBook.image}
           handleDelete={handleDelete}
         />
       ))}
+      console.log(LibraryBook);
     </div>
   );
 }

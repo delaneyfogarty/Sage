@@ -21,6 +21,7 @@ export default function Library() {
         title: book.stories.title,
         author: book.stories.author,
         id: book.stories.id,
+        image: book.stories.image,
       };
     });
     setLibrary(filteredFavorites);

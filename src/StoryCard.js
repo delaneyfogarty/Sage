@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { addToLibrary, deleteFromLibrary } from './services/supabase';
 
-export default function StoryCard({ title, author, id }) {
+export default function StoryCard({ title, author, id, image }) {
   //const history = useHistory();
   async function handleAddClick() {
     // const libraryItem = await addToLibrary(id);
@@ -16,17 +16,19 @@ export default function StoryCard({ title, author, id }) {
   }
   return (
     <>
-      <div className='story-card'> 
+      <div className="story-card">
         <Link to={`/detail/${id}`}>
           <div className="story-card">
             <p className="story-title"> {title} </p>
-            <img className="story-images" src={`./images/${title}.png`} />
+            <img className="story-images" src={image} />
             <p className="story-author"> By {author} </p>
           </div>
         </Link>
         <div>
-          <button onClick={handleAddClick} className="button-54" role="button"> Add to Library </button>
-          <button onClick={handleDeleteClick} className="button-54" role="button"> Delete from Library </button>
+          <button onClick={handleAddClick} className="button-54" role="button">
+            {' '}
+            Add to Library{' '}
+          </button>
         </div>
       </div>
     </>

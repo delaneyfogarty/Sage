@@ -47,7 +47,7 @@ export async function getAllStories(page) {
 
 export async function addToLibrary(id) {
   const response = await client.from('stories_junction_two').insert({ story_id: id });
-
+  console.log(response.data);
   return response.data;
 }
 
@@ -70,13 +70,13 @@ export async function deleteFromLibrary(id) {
   return response.data;
 }
 
-export async function readStory(id) {
+export async function readStory(id, isRead) {
   const response = await client
     .from('stories_junction_two')
-    .update({ is_read: true })
-    .match({ id })
+    .update({ is_read: isRead })
+    .match({ story_id: id }) 
     .single();
-
+  console.log(response);
   return response.data;
 }
 

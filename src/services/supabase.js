@@ -54,8 +54,13 @@ export async function addToLibrary(id) {
 //story_reader_id: story_id.story_reader_id,
 
 export async function getLibraryBooks() {
-  const response = await client.from('stories_junction_two').select('*');
-
+  const response = await client.from('stories_junction_two').select(`
+    story_id, 
+    stories(
+      title, author, id
+      )
+    `);
+  console.log(response);
   return response.data;
 }
 

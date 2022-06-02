@@ -1,6 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+// import Home from './Home';
 
+import { deleteFromLibrary } from './services/supabase';
 import LibraryList from './LibraryList';
 import { getLibraryBooks } from './services/supabase';
 
@@ -8,9 +10,20 @@ export default function Library() {
   const [library, setLibrary] = useState([]);
   // const [updatedLibrary, setUpdatedLibrary] = useState([]);
 
+  async function handleDelete(id) {
+    await deleteFromLibrary(id);
+  }
+
   async function fetchFavorites() {
     const myFavorites = await getLibraryBooks();
-    setLibrary(myFavorites);
+    const filteredFavorites = myFavorites.map((book) => {
+      return {
+        title: book.stories.title,
+        author: book.stories.author,
+        id: book.stories.id,
+      };
+    });
+    setLibrary(filteredFavorites);
   }
 
   useEffect(() => {
@@ -27,7 +40,7 @@ export default function Library() {
   return (
     <div>
       <h2>My Library</h2>
-      <LibraryList library={library} fetchFavorites={fetchFavorites} />
+      <LibraryList library={library} fetchFavorites={fetchFavorites} handleDelete={handleDelete} />
     </div>
   );
 }

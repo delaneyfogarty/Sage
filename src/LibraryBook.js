@@ -8,7 +8,7 @@ export default function LibraryBook({ fetchFavorites, title, author, id, is_read
     await fetchFavorites();
   }
   return (
-    <div>
+    <div className="book">
       <Link to={`/detail/${id}`}>
         <div onClick={handleClick}>
           <h2> {is_read ? '✅' : '📚'} </h2>

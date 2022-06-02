@@ -33,7 +33,7 @@ export async function getStoryById(id) {
 }
 
 export async function getAllStories(page) {
-  const numPerPage = 2;
+  const numPerPage = 8;
   const start = (page - 1) * numPerPage;
   const response = await client
     .from('stories')
@@ -54,8 +54,13 @@ export async function addToLibrary(id) {
 //story_reader_id: story_id.story_reader_id,
 
 export async function getLibraryBooks() {
-  const response = await client.from('stories_junction_two').select('*');
-
+  const response = await client.from('stories_junction_two').select(`
+    story_id, 
+    stories(
+      title, author, id, image
+      )
+    `);
+  console.log(response);
   return response.data;
 }
 

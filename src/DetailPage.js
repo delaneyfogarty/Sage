@@ -5,6 +5,7 @@ import { convertText } from './services/fetch-utils';
 
 export default function DetailPage() {
   const [story, setStory] = useState({});
+  const [loadedStory, setLoadedStory] = useState(false);
   const params = useParams();
 
   useEffect(() => {
@@ -16,60 +17,23 @@ export default function DetailPage() {
     fetch();
   }, [params.id]);
 
-  useEffect(() => {
-    async function fetch() {
-      const storyData = await getStoryById(params.id);
-      const convertedStory = await convertText(storyData.story_text);
-      setStory(convertedStory);
-    }
-
-    fetch();
-  }, [params.id]);
-
-  function handleStoryClick() {
-    window.location.href = `${story.link}`;
+  async function handleCovertClick() {
+    const convertedStory = await convertText(story.story_text);
+    setLoadedStory(convertedStory);
   }
 
   return (
     <div className="story-data">
-      <div className="story-detail" onClick={handleStoryClick}>
-        <h2>{story.title}</h2>
+      <h2 onClick={handleCovertClick}>{story.title}</h2>
+      {loadedStory ? (
+        <>
+          <div dangerouslySetInnerHTML={{ __html: loadedStory }} />
+        </>
+      ) : (
         <p>{story.story_text}</p>
-        <h3>by {story.author}</h3>
-        <img className="story-images" src={`./images/${story.title}.png`} />
-      </div>
-      <div dangerouslySetInnerHTML={{ __html: story }} />
+      )}
+      <h3>by {story.author}</h3>
+      <img className="story-images" src={story.image} />
     </div>
   );
 }
-
-// // call text located in supabase
-// //
-// const [books, setBooks] = useState([]);
-//   console.log('books', books);
-//   /*
-//   const story = await getStoryById(storyId)
-
-//   First use effect to call fetch function
-//   */
-
-// useEffect(() => {
-//     async function fetch() {
-//       const story = await getAllStories();
-//       const convertedStory = await convertText(story[0].story_text);
-//       console.log(convertedStory, 'converted Story');
-//       setBooks(convertedStory);
-//     }
-//     fetch();
-//   }, []);
-
-// <div className="App">
-// <div dangerouslySetInnerHTML={{ __html: books }} />
-
-// {/* {books.map((book, i) => (
-// <>
-//   <div key={book + i} book={book} />
-//   <h2>{book.title}</h2>
-//   <p>{book.story_text}</p>
-// </>
-// ))} */}

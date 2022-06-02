@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { addToLibrary, deleteFromLibrary } from './services/supabase';
 
 
-export default function StoryCard({ title, author, id }) {
+export default function StoryCard({ title, author, id, image }) {
   // const { id } = useParams();
   const [isRead, setIsRead] = useState(false);
 
@@ -32,16 +32,21 @@ export default function StoryCard({ title, author, id }) {
   
   return (
     <>
-      <Link to={`/detail/${id}`}>
-        <div className="story-card">
-          <p className="story-title"> {title} </p>
-          <img className="story-images" src={`./images/${title}.png`} />
-          <p className="story-author"> By {author} </p>
-        </div>
-      </Link>
-      <div>
-        <button onClick={handleAddClick}> Add to Library </button>
+      <div className="story-card">
+        <Link to={`/detail/${id}`}>
+          <div className="story-card">
+            <p className="story-title"> {title} </p>
+            <img className="story-images" src={image} />
+            <p className="story-author"> By {author} </p>
+          </div>
+        </Link>
+        <div>
+          <button onClick={handleAddClick} className="button-54" role="button">
+            {' '}
+            Add to Library{' '}
+          </button>
         <button onClick={handleDeleteClick}> Delete from Library </button>
+        </div>
         <div>
           <div>
             {isRead ? '✅' : '📚'}

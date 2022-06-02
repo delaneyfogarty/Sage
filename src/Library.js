@@ -17,7 +17,6 @@ export default function Library() {
   async function fetchFavorites() {
     const myFavorites = await getLibraryBooks();
     const filteredFavorites = myFavorites.map((book) => {
-      console.log(book);
       return {
         title: book.stories.title,
         author: book.stories.author,
@@ -47,7 +46,13 @@ export default function Library() {
   return (
     <div>
       <h2>My Library</h2>
-      <LibraryList library={library} fetchFavorites={fetchFavorites} handleDelete={handleDelete} updatedLibrary={updatedLibrary} setUpdatedLibrary={setUpdatedLibrary} />
+      <LibraryList
+        library={library}
+        fetchFavorites={fetchFavorites}
+        handleDelete={handleDelete}
+        updatedLibrary={updatedLibrary}
+        setUpdatedLibrary={setUpdatedLibrary}
+      />
     </div>
   );
 }

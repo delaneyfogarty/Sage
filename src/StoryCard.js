@@ -21,15 +21,15 @@ export default function StoryCard({ title, author, id }) {
   }
     
   async function handleReadBook() {
-    await readStory(id);
+    await readStory(id, isRead);
     setIsRead(true);
   }
     
   async function handleUnreadBook() {
-    await readStory(id);
+    await readStory(id, isRead);
     setIsRead(false);
   }
-
+  
   return (
     <>
       <Link to={`/detail/${id}`}>

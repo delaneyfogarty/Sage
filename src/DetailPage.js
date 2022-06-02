@@ -10,6 +10,15 @@ export default function DetailPage() {
   useEffect(() => {
     async function fetch() {
       const storyData = await getStoryById(params.id);
+      setStory(storyData);
+    }
+
+    fetch();
+  }, [params.id]);
+
+  useEffect(() => {
+    async function fetch() {
+      const storyData = await getStoryById(params.id);
       const convertedStory = await convertText(storyData.story_text);
       setStory(convertedStory);
     }
@@ -23,14 +32,13 @@ export default function DetailPage() {
 
   return (
     <div className="story-data">
-      <div dangerouslySetInnerHTML={{ __html: story }} />
-
       <div className="story-detail" onClick={handleStoryClick}>
         <h2>{story.title}</h2>
-        <h3>by {story.author}</h3>
         <p>{story.story_text}</p>
+        <h3>by {story.author}</h3>
         <img className="story-images" src={`./images/${story.title}.png`} />
       </div>
+      <div dangerouslySetInnerHTML={{ __html: story }} />
     </div>
   );
 }

@@ -249,11 +249,10 @@ align-items: center; */
   background-size: 220px 244px;
 }
 
-<<<<<<< HEAD
 .input{
   background-color: rgb(237, 201, 157);
 }
-=======
+
 .book {
   width: 200px;
   background-color: var(--color2);
@@ -264,19 +263,19 @@ align-items: center; */
   align-items: center;
   padding: 10px;
   color: white;
-}
-
-.story-card img {
+ }
+  
+ .story-card img {
   width: 100px;
-}
-
-.library-list img {
+ }
+  
+ .library-list img {
   width: 100px;
-}
-
-.story-title {
+ }
+  
+ .story-title {
   text-transform: uppercase;
   font-weight: bold;
   font-family: 'Space and Astronomy';
-}
->>>>>>> b87c89a0b86a883a752d32c33dd5306a92877194
+ }
+ 

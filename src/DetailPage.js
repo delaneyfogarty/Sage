@@ -24,7 +24,11 @@ export default function DetailPage() {
 
   return (
     <div className="story-data">
-      <h2 onClick={handleCovertClick}>{story.title}</h2>
+      <h2>{story.title}</h2>
+      <h3>by {story.author}</h3>
+      <img className="story-images" src={story.image} />
+      <br></br>
+      <button className="button-54" role="button" onClick={handleCovertClick}>Convert Text</button>
       {loadedStory ? (
         <>
           <div dangerouslySetInnerHTML={{ __html: loadedStory }} />
@@ -32,8 +36,6 @@ export default function DetailPage() {
       ) : (
         <p>{story.story_text}</p>
       )}
-      <h3>by {story.author}</h3>
-      <img className="story-images" src={story.image} />
     </div>
   );
 }

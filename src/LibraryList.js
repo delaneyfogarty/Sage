@@ -19,7 +19,6 @@ export default function LibraryList({ library, fetchFavorites, handleDelete, upd
           setUpdatedLibrary={setUpdatedLibrary}
         />
       ))}
-      console.log(LibraryBook);
     </div>
   );
 }

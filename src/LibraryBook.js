@@ -44,21 +44,21 @@ export default function LibraryBook({
         <div onClick={handleClick}>
           <p> {isRead ? '✅' : '📚'} </p>
           <p className="story-title"> {title} </p>
-          <img className="story-images" src={image} />
+          <img className="story-pics" src={image} />
           <p className="story-author"> By {author} </p>
         </div>
       </Link>
-      <div> 
+      <div>
         <button onClick={handleDeleteClick} className="button-54" role="button">
           {' '}
-        Delete from Library{' '}
+          Delete from Library{' '}
         </button>
         <div>
           <button onClick={handleReadBook} className="button-54" role="button">
-          I finished it!
+            I finished it!
           </button>
           <button onClick={handleUnreadBook} className="button-54" role="button">
-          Need to read!
+            Need to read!
           </button>
         </div>
       </div>

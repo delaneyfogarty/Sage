@@ -283,7 +283,6 @@ align-items: center; */
   border-radius: 10px;
 }
 
-
 .input {
   background-color: rgb(237, 201, 157);
 }
@@ -342,7 +341,6 @@ align-items: center; */
   font-family: 'Space and Astronomy';
   color: white;
 }
-
 
 .story-card {
   width: 200px;
@@ -450,3 +448,12 @@ align-items: center; */
   padding: 15px;
 }
 
+nav {
+  align-items: center;
+  justify-content: center;
+  margin-left: 210px;
+}
+
+.story-pics {
+  width: 30px;
+}

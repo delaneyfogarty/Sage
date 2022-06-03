@@ -2,10 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { addToLibrary } from './services/supabase';
 
-
 export default function StoryCard({ title, author, id, image }) {
   // const { id } = useParams();
-
 
   //const history = useHistory();
   async function handleAddClick() {
@@ -18,14 +16,14 @@ export default function StoryCard({ title, author, id, image }) {
   //   // const libraryItem = await addToLibrary(id);
   //   await deleteFromLibrary(id);
   // }
-  
+
   return (
     <>
       <div className="story-card">
         <Link to={`/detail/${id}`}>
           <div>
             <p className="story-title"> {title} </p>
-            <img className="story-images" src={image} />
+            <img className="story-pics" src={image} />
             <p className="story-author"> By {author} </p>
           </div>
         </Link>

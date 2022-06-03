@@ -1,28 +1,29 @@
 import React from 'react';
 import './AboutUs.css';
+import backgroundImg from '../src/books.jpeg';
 
 export default function AboutUs() {
   return (
     <>
-      <div style={{ backgroundImage: 'url(/books.jpeg)' }}>
+      <div style={{ backgroundImage: `url(${backgroundImg})` }}>
         <h1 style={{ backgroundColor: 'antiquewhite' }} className="about-us-header">
-          READING APP TEAM
+          SAGE TEAM
         </h1>
         <div className="bios">
           <div className="bio-div">
-            <img className="bios-image" src="/jeff.jpg" />
+            <img className="bios-image" src="/beth.png" />
             <p className="bio-text">
               <h3 className="bio-header">Beth 📙</h3>
-              Jeff Allison is a software developer based in Portland Oregon. One of his favorite
-              childhood stories is Jabberwocky by Lewis Carroll.
+              Beth Melesse is a software developer based in San Francisco Bay Area. One of her
+              favorite childhood stories is the Giving Tree by Shel Silverstein.
             </p>
           </div>
           <div className="bio-div">
-            <img className="bios-image" src="/jeff.jpg" />
+            <img className="bios-image" src="/delaney.png" />
             <p className="bio-text">
               <h3 className="bio-header">Delaney 📘</h3>
-              Jeff Allison is a software developer based in Portland Oregon. One of his favorite
-              childhood stories is Jabberwocky by Lewis Carroll.
+              Delaney Fogarty is a software engineer based in Portland Oregon. One of her favorite
+              childhood stories is Goodnight Moon by Margaret Wise Brown.
             </p>
           </div>
           <div className="bio-div">
@@ -34,10 +35,11 @@ export default function AboutUs() {
             </p>
           </div>
           <div className="bio-div">
-            <img className="bios-image" src="/jeff.jpg" />
+            <img className="bios-image" src="/susan.png" />
             <p className="bio-text">
               <h3 className="bio-header">Susan 📗</h3>
-              Susan bio
+              Susan Bird is a software engineer based in Portland Oregon. One of her favorite
+              childhood stories is Charlottes Web by E.B. White.
             </p>
           </div>
         </div>

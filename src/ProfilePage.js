@@ -18,33 +18,30 @@ export default function ProfilePage() {
   return (
     <div>
       <form onSubmit={handleCreateProfile}>
-        <label>
-          Name:
-          <input value={formName} onChange={(e) => setFormName(e.target.value)} />
-        </label>
-        <label>
-          Pick Your Emoji
-          <select onChange={(e) => setAvatar(e.target.value)}>
-            <option>🐌</option>
-            <option>🧞</option>
-            <option>🧝‍♂️</option>
-            <option>🧚</option>
-            <option>🦖</option>
-          </select>
-        </label>
-        <button>Submit Profile</button>
-        <div>
-          <p>{avatar}</p>
-          <p>{formName}</p>
+        <div className="profile-inputs">
+          <label>
+            Create Your Secret Key:
+            <input value={formName} onChange={(e) => setFormName(e.target.value)} />
+          </label>
+          <label>
+            Pick Your Favorite Character
+            <select onChange={(e) => setAvatar(e.target.value)}>
+              <option>🐌</option>
+              <option>🧞</option>
+              <option>🧝‍♂️</option>
+              <option>🧚</option>
+              <option>🦖</option>
+            </select>
+          </label>
+          <button className="button-54" role="button">
+            Unlock Your Stories
+          </button>
         </div>
       </form>
+
       <div>
-        <h2>
-          Instructions
-        </h2>
-        <p>
-          Instructions go here
-        </p>
+        <h2>Instructions</h2>
+        <p>Instructions go here</p>
       </div>
     </div>
   );

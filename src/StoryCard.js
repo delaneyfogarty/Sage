@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { addToLibrary, deleteFromLibrary } from './services/supabase';
+import { addToLibrary } from './services/supabase';
 
 
 export default function StoryCard({ title, author, id, image }) {
@@ -14,10 +14,10 @@ export default function StoryCard({ title, author, id, image }) {
     //history.push('./library');
   }
 
-  async function handleDeleteClick() {
-    // const libraryItem = await addToLibrary(id);
-    await deleteFromLibrary(id);
-  }
+  // async function handleDeleteClick() {
+  //   // const libraryItem = await addToLibrary(id);
+  //   await deleteFromLibrary(id);
+  // }
   
   return (
     <>
@@ -34,7 +34,6 @@ export default function StoryCard({ title, author, id, image }) {
             {' '}
             Add to Library{' '}
           </button>
-          <button onClick={handleDeleteClick}> Delete from Library </button>
         </div>
       </div>
     </>

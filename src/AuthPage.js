@@ -43,7 +43,7 @@ export default function AuthPage({ setEmail, setToken }) {
           </label>
           <label>
           password
-            <input className='input' value={signUpPassword} onChange={(e) => setSignUpPassword(e.target.value)} />
+            <input type="password" className='input' value={signUpPassword} onChange={(e) => setSignUpPassword(e.target.value)} />
           </label>
           <button className="button-54" role="button">Sign Up</button>
         </form>

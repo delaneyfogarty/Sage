@@ -33,7 +33,7 @@ export async function getStoryById(id) {
 }
 
 export async function getAllStories(page) {
-  const numPerPage = 8;
+  const numPerPage = 4;
   const start = (page - 1) * numPerPage;
   const response = await client
     .from('stories')

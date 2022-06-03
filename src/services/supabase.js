@@ -101,15 +101,15 @@ export async function createProfile(reader) {
   return response.data;
 }
 
-export async function updateProfile(id, reader) {
-  const response = await client
-    .from('story_readers_two')
-    .update({
-      name: reader.name,
-      avatar: reader.avatar,
-      email: reader.email,
-      user_id: reader.user_id,
-    })
-    .match({ id: id });
-  return response;
-}
+// export async function updateProfile(id, reader) {
+//   const response = await client
+//     .from('story_readers_two')
+//     .update({
+//       name: reader.name,
+//       avatar: reader.avatar,
+//       email: reader.email,
+//       user_id: reader.user_id,
+//     })
+//     .match({ id: id });
+//   return response;
+// }

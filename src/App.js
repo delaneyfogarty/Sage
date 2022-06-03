@@ -9,7 +9,6 @@ import ProfilePage from './ProfilePage';
 import Home from './Home';
 import DetailPage from './DetailPage';
 import AboutUs from './AboutUs';
-import UpdateProfilePage from './UpdateProfilePage';
 import Library from './Library';
 
 function App() {
@@ -69,9 +68,6 @@ function App() {
             </Route>
             <Route exact path="/profile">
               {token ? <ProfilePage /> : <Redirect to="/" />}
-            </Route>
-            <Route exact path="/update">
-              {token ? <UpdateProfilePage /> : <Redirect to="/" />}
             </Route>
             <Route exact path="/library">
               {token ? <Library /> : <Redirect to="/" />}

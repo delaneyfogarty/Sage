@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { readStory, unReadStory, deleteFromLibrary } from './services/supabase';
 
-export default function LibraryBook({ fetchFavorites, title, author, id, image, updatedLibrary, setUpdatedLibrary }) {
+export default function LibraryBook({
+  fetchFavorites,
+  title,
+  author,
+  id,
+  image,
+  updatedLibrary,
+  setUpdatedLibrary,
+}) {
   const [isRead, setIsRead] = useState(false);
 
   async function handleClick() {
@@ -20,22 +28,22 @@ export default function LibraryBook({ fetchFavorites, title, author, id, image, 
     // setIsRead(true);
     await readStory(id);
     setIsRead(true);
-    setUpdatedLibrary(!updatedLibrary);  
+    setUpdatedLibrary(!updatedLibrary);
   }
-    
+
   async function handleUnreadBook() {
     // setIsRead(false);
     await unReadStory(id);
     setIsRead(false);
-    setUpdatedLibrary(!updatedLibrary);  
+    setUpdatedLibrary(!updatedLibrary);
   }
 
   return (
-    <div className="book">
+    <div className="story-card">
       <Link to={`/detail/${id}`}>
         <div onClick={handleClick}>
-          <h2> {isRead ? '✅' : '📚'} </h2>
-          <h1 className="story-title"> {title} </h1>
+          <p> {isRead ? '✅' : '📚'} </p>
+          <p className="story-title"> {title} </p>
           <img className="story-images" src={image} />
           <p className="story-author"> By {author} </p>
         </div>
@@ -45,11 +53,12 @@ export default function LibraryBook({ fetchFavorites, title, author, id, image, 
         Delete from Library{' '}
       </button>
       <div>
-        <div>
-          {isRead ? '✅' : '📚'}
-        </div>
-        <button onClick={handleReadBook}>I read this book!</button>
-        <button onClick={handleUnreadBook}>Unread book</button>
+        <button onClick={handleReadBook} className="button-54" role="button">
+          I finished it!
+        </button>
+        <button onClick={handleUnreadBook} className="button-54" role="button">
+          Need to read!
+        </button>
       </div>
     </div>
   );

@@ -1,8 +1,14 @@
 import React from 'react';
 import LibraryBook from './LibraryBook';
-import backgroundImg from '../src/jungle.png';
+import backgroundImg from '../src/clouds.png';
 
-export default function LibraryList({ library, fetchFavorites, handleDelete, updatedLibrary, setUpdatedLibrary }) {
+export default function LibraryList({
+  library,
+  fetchFavorites,
+  handleDelete,
+  updatedLibrary,
+  setUpdatedLibrary,
+}) {
   return (
     <div className="library-list" style={{ backgroundImage: `url(${backgroundImg})` }}>
       {library.map((libraryBook) => (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createProfile } from './services/supabase';
+import backgroundImg from '../src/clouds.png';
 
 export default function ProfilePage() {
   const [formName, setFormName] = useState('');
@@ -16,7 +17,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url(${backgroundImg})` }}>
       <form onSubmit={handleCreateProfile}>
         <div className="profile-inputs">
           <label>
@@ -39,9 +40,9 @@ export default function ProfilePage() {
         </div>
       </form>
 
-      <div>
+      <div className="instructions">
         <h2>Instructions</h2>
-        <p>Instructions go here</p>
+        <p></p>
       </div>
     </div>
   );

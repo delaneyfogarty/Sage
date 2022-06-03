@@ -212,6 +212,47 @@ header {
   justify-content: center;
   align-items: center;
 }
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.library-list {
+  display: flex;
+  flex-wrap: wrap;
+  background-size: cover;
+  height: calc(100vh - 80px);
+  align-content: center;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: skyblue;
+  border-radius: 20px;
+  color: white;
+  width: 100%;
+}
+
+.home-body {
+  display: flex;
+  flex-wrap: wrap;
+  background-size: cover;
+  height: calc(100vh - 80px);
+  align-content: center;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
 /* 
 height: 100%;
 display: flex;
@@ -279,4 +320,7 @@ align-items: center; */
   text-transform: uppercase;
   font-weight: bold;
   font-family: 'Space and Astronomy';
+}
+
+background-image {
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import StoryList from './StoryList';
 import { getAllStories } from './services/supabase';
+import backgroundImg from '../src/clouds.png';
 
 export default function Home() {
   const [stories, setStories] = useState([]);
@@ -21,18 +22,23 @@ export default function Home() {
 
   return (
     <>
-      <body className="home-body">
-        <h4 className='page'>Page {page}</h4>
-        <div className="buttons">
-          <button disabled={page <= 1} onClick={() => setPage(page - 1)}>
-            Previous Page
-          </button>
-          <button disabled={page >= lastPage} onClick={() => setPage(page + 1)}>
-            Next Page
-          </button>
-        </div>
+      <body
+        className="home-body"
+        style={{
+          backgroundImage: `url(${backgroundImg})`,
+        }}
+      >
         <StoryList stories={stories} />
       </body>
+      <h4 className="page">Page {page}</h4>
+      <div className="buttons">
+        <button disabled={page <= 1} onClick={() => setPage(page - 1)}>
+          Previous Page
+        </button>
+        <button disabled={page >= lastPage} onClick={() => setPage(page + 1)}>
+          Next Page
+        </button>
+      </div>
     </>
   );
 }

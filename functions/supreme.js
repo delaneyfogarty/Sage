@@ -37,6 +37,7 @@ exports.handler = async (event, context) => {
 
   try {
     const response = await fetch(`https://bionic-reading1.p.rapidapi.com/convert`, options);
+    console.log(response, 'response');
     const data = await response.text();
     const text = JSON.stringify(data);
 

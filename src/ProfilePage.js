@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { createProfile } from './services/supabase';
-import UpdateProfilePage from './UpdateProfilePage';
 
 export default function ProfilePage() {
   const [formName, setFormName] = useState('');
@@ -47,7 +46,6 @@ export default function ProfilePage() {
           Instructions go here
         </p>
       </div>
-      {<UpdateProfilePage formName={formName} avatar={avatar} />}
     </div>
   );
 }

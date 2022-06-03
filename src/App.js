@@ -35,26 +35,25 @@ function App() {
       <Router>
         <header>
           <nav>
-            <ul className='links'>
-              <li className='navlink'>
+            <ul className="links">
+              <li className="navlink">
                 <Link to="/home">Home</Link>
               </li>
-              <li className='navlink'>
+              <li className="navlink">
                 <Link to="/library">Library</Link>
               </li>
-              <li className='navlink'>
-                <Link to="/profile">Profile</Link>
+              <li className="navlink">
+                <Link to="/profile">Instructions</Link>
               </li>
-              <li className='navlink'>
-                <Link to="/update">Update Profile</Link>
-              </li>
-              <li className='navlink'>
+              <li className="navlink">
                 <Link to="/about">About Us</Link>
               </li>
-              <li className='navlink'>
+              <li className="navlink">
                 <p>{email}</p>
                 {/* <p>{token}</p> */}
-                <button className="button-55" role="button" onClick={handleLogout}>Logout</button>
+                <button className="button-55" role="button" onClick={handleLogout}>
+                  Logout
+                </button>
               </li>
             </ul>
           </nav>

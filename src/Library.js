@@ -45,7 +45,6 @@ export default function Library() {
   // }
   return (
     <div>
-      <h2>My Library</h2>
       <LibraryList
         library={library}
         fetchFavorites={fetchFavorites}

@@ -23,7 +23,7 @@ export default function StoryCard({ title, author, id, image }) {
     <>
       <div className="story-card">
         <Link to={`/detail/${id}`}>
-          <div className="story-card">
+          <div>
             <p className="story-title"> {title} </p>
             <img className="story-images" src={image} />
             <p className="story-author"> By {author} </p>

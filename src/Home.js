@@ -21,7 +21,7 @@ export default function Home() {
   }, [page]);
 
   return (
-    <>
+    <div> 
       <body
         className="home-body"
         style={{
@@ -39,7 +39,8 @@ export default function Home() {
           Next Page
         </button>
       </div>
-    </>
+    </div>
+
   );
 }
 

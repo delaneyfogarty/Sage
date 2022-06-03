@@ -10,7 +10,7 @@ export default function LibraryList({
   setUpdatedLibrary,
 }) {
   return (
-    <div className="library-list" style={{ backgroundImage: `url(${backgroundImg})` }}>
+    <div className="story-list" style={{ backgroundImage: `url(${backgroundImg})` }}>
       {library.map((libraryBook) => (
         <LibraryBook
           key={libraryBook.title}

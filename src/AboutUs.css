@@ -1,0 +1,38 @@
+.about-us-header {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border: solid 1px black;
+}
+
+.bios {
+  display: flex;
+  margin-bottom: 35px;
+}
+
+.bios-image {
+  height: 300px;
+  width: 275px;
+  border-radius: 1%;
+}
+
+.bio-div {
+  border: 2px solid black;
+  margin-right: 90px;
+  margin-left: 10px;
+  margin-bottom: 93px;
+  margin-top: 45px;
+  background-color: antiquewhite;
+  border-radius: 2%;
+}
+
+.bio-text {
+  display: center;
+  font-weight: 600;
+  margin-bottom: 2px;
+  margin-left: 12px;
+}
+
+.bio-header {
+  text-align: center;
+}

@@ -36,3 +36,424 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  --color1: #ffffff;
+  --color3: #ffffff;
+  --color2: #613605;
+  --color4: #ffffff;
+  --color5: #ddfbd2;
+  --header-height: 10px;
+}
+
+body {
+  background-color: var(--color1);
+}
+
+.story-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  background-size: cover;
+  height: calc(100vh - 80px);
+  align-content: space-around;
+  justify-content: center;
+}
+
+/* .story-tile {
+  display: flex;
+  flex-direction: row;
+} */
+
+.story-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Space and Astronomy';
+}
+
+.links {
+  /* display: flex;
+  flex-direction: row;
+  padding-right: 300px; */
+  text-align: center;
+  display: inline-flex;
+}
+
+.navlink {
+  display: flex;
+  flex-direction: row;
+  padding-left: 100px;
+}
+
+a:link {
+  text-decoration: none;
+  color: green;
+}
+
+a:active {
+  text-decoration: none;
+  color: green;
+}
+
+a:hover {
+  text-decoration: none;
+  color: darkgreen;
+}
+
+a:visited {
+  text-decoration: none;
+  color: green;
+}
+
+/*
+<!-- HTML !-->
+<button class="button-55" role="button">Button 55</button> */
+
+/* CSS */
+.button-55 {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 20px;
+  outline: none;
+  padding: 0.25rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-55:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-55:focus {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+
+.button-54 {
+  align-self: center;
+  background-color: rgb(243, 217, 178);
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 0.7rem;
+  line-height: 20px;
+  outline: none;
+  padding: 0.25rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-54:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-54:focus {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+
+header {
+  max-height: 20px;
+}
+
+.page {
+  margin: 0px;
+}
+
+.auth-page {
+  display: flex;
+  flex-wrap: wrap;
+  background-size: cover;
+  height: calc(100vh - 80px);
+  align-content: center;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.library-list {
+  display: flex;
+  flex-wrap: wrap;
+  background-size: cover;
+  height: calc(100vh - 80px);
+  align-content: center;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-page {
+  display: flex;
+  flex-wrap: wrap;
+  background-size: cover;
+  height: calc(100vh - 80px);
+  align-content: center;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: skyblue;
+  border-radius: 20px;
+  color: white;
+  width: 100%;
+}
+
+.home-body {
+  display: flex;
+  flex-wrap: wrap;
+  background-size: cover;
+  height: calc(100vh - 80px);
+  align-content: center;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+/*
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center; */
+
+.auth-page form *,
+.auth-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.auth-page div {
+  border: 2px groove rgb(47, 26, 1);
+  border-radius: 10px;
+}
+
+.input {
+  background-color: rgb(237, 201, 157);
+}
+/* 
+.book {
+  width: 200px;
+  background-color: var(--color2);
+  margin: 10px;
+  border-radius: 5px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  background-image: url('./bookCover.png');
+  background-size: 220px 244px;
+} */
+
+/* .book {
+  width: 200px;
+  background-color: var(--color2);
+  margin: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  color: white;
+} */
+
+/* .book img {
+  width: 170px;
+  height: 170px;
+  margin: 50px;
+} */
+
+.story-card img {
+  width: 100px;
+}
+
+.story-list img {
+  width: 100px;
+}
+
+.story-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Space and Astronomy';
+  color: white;
+}
+
+.story-author {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Space and Astronomy';
+  color: white;
+}
+
+.story-card {
+  width: 200px;
+  height: 367px;
+  background-color: var(--color2);
+  margin: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  color: var(--color4);
+  background-image: url('./bookCover.png');
+  background-size: 220px 387px;
+}
+
+.my-library {
+  margin: 0;
+}
+
+.profile-inputs {
+  background-color: lightblue;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  margin: 25px;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+
+.secret-label {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: rgb(243, 217, 178);
+  background-repeat: no-repeat;
+  font-size: 14px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  opacity: 0.8;
+}
+
+.story-data {
+  background-repeat: no-repeat;
+  background-color: rgb(243, 217, 178);
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  background-size: cover;
+  height: calc(100vh - 80px);
+  align-content: center;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-images {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.story-stuff {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-left: 70px;
+  margin-right: 70px;
+  background-color: rgb(243, 217, 178);
+  background-repeat: no-repeat;
+  font-size: 14px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  opacity: 0.8;
+  font-size: 1rem;
+}
+
+.library-header {
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
+  color: black;
+  font-weight: bold;
+  margin: 25px;
+  border-radius: 9px;
+  opacity: 0.8;
+  padding: 15px;
+}
+
+nav {
+  align-items: center;
+  justify-content: center;
+  margin-left: 210px;
+}
+
+.story-pics {
+  width: 30px;
+}

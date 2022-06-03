@@ -39,6 +39,14 @@ export default function ProfilePage() {
           <p>{formName}</p>
         </div>
       </form>
+      <div>
+        <h2>
+          Instructions
+        </h2>
+        <p>
+          Instructions go here
+        </p>
+      </div>
       {<UpdateProfilePage formName={formName} avatar={avatar} />}
     </div>
   );

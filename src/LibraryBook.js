@@ -48,17 +48,19 @@ export default function LibraryBook({
           <p className="story-author"> By {author} </p>
         </div>
       </Link>
-      <button onClick={handleDeleteClick} className="button-54" role="button">
-        {' '}
+      <div> 
+        <button onClick={handleDeleteClick} className="button-54" role="button">
+          {' '}
         Delete from Library{' '}
-      </button>
-      <div>
-        <button onClick={handleReadBook} className="button-54" role="button">
+        </button>
+        <div>
+          <button onClick={handleReadBook} className="button-54" role="button">
           I finished it!
-        </button>
-        <button onClick={handleUnreadBook} className="button-54" role="button">
+          </button>
+          <button onClick={handleUnreadBook} className="button-54" role="button">
           Need to read!
-        </button>
+          </button>
+        </div>
       </div>
     </div>
   );

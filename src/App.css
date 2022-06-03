@@ -57,10 +57,7 @@ body {
   background-size: cover;
   height: calc(100vh - 80px);
   align-content: space-around;
-}
-
-.story-card img {
-  width: 100px;
+  justify-content: center;
 }
 
 /* .story-tile {
@@ -286,24 +283,11 @@ align-items: center; */
   border-radius: 10px;
 }
 
-.story-card {
-  width: 200px;
-  background-color: var(--color2);
-  margin: 10px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  color: var(--color4);
-  background-image: url('./bookCover.png');
-  background-size: 220px 244px;
-}
 
 .input {
   background-color: rgb(237, 201, 157);
 }
-
+/* 
 .book {
   width: 200px;
   background-color: var(--color2);
@@ -317,7 +301,7 @@ align-items: center; */
   color: white;
   background-image: url('./bookCover.png');
   background-size: 220px 244px;
-}
+} */
 
 /* .book {
   width: 200px;
@@ -331,17 +315,17 @@ align-items: center; */
   color: white;
 } */
 
-.book img {
+/* .book img {
   width: 170px;
   height: 170px;
   margin: 50px;
-}
+} */
 
 .story-card img {
   width: 100px;
 }
 
-.library-list img {
+.story-list img {
   width: 100px;
 }
 
@@ -357,6 +341,26 @@ align-items: center; */
   font-weight: bold;
   font-family: 'Space and Astronomy';
   color: white;
+}
+
+
+.story-card {
+  width: 200px;
+  height: 367px;
+  background-color: var(--color2);
+  margin: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  color: var(--color4);
+  background-image: url('./bookCover.png');
+  background-size: 220px 387px;
+}
+
+.my-library {
+  margin: 0;
 }
 
 .profile-inputs {
@@ -445,3 +449,4 @@ align-items: center; */
   opacity: 0.8;
   padding: 15px;
 }
+

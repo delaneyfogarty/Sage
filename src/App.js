@@ -1,3 +1,5 @@
+/* Great work on this! Such a wonderful idea for a project and a fun chance to work on an badly-documented and buggy API. Most APIs you'll deal with in your career will feel a lot like this, since most APIs are internal to your company, so this was great practice for development in the real world. Your components are sensibly broken into smaller parts, and this project would be a delight to maintain. Keep up these good habits! */
+
 // import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';

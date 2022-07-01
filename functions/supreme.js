@@ -4,15 +4,17 @@ require('dotenv').config();
 
 exports.handler = async (event, context) => {
   const encodedParams = new URLSearchParams();
-  encodedParams.append('content', `${event.queryStringParameters.content}`);
+  // nice work puzzling through all of this! it's very impressive that y'all could wrangle your way through a new and poorly-documented API. great work!
+  encodedParams.append('content', event.queryStringParameters.content);
   encodedParams.append('response_type', 'html');
   encodedParams.append('request_type', 'html');
   encodedParams.append('fixation', '1');
   encodedParams.append('saccade', '10');
 
-  const key = `${process.env.SUPREME_KEY}`;
+  const key = process.env.SUPREME_KEY; // does this need to be a tempalte literal for some reason?
 
   const options = {
+    // a post request! nice :)
     method: 'POST',
     headers: {
       'content-type': 'application/x-www-form-urlencoded',

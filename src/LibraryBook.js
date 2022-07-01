@@ -12,7 +12,6 @@ export default function LibraryBook({
   setUpdatedLibrary,
 }) {
   const [isRead, setIsRead] = useState(false);
-
   async function handleClick() {
     await readStory(id);
     await fetchFavorites();
@@ -24,20 +23,13 @@ export default function LibraryBook({
     await fetchFavorites();
   }
 
+  // this prevents duplication, but maybe is less readable? i could go either way
   async function handleReadBook() {
     // setIsRead(true);
     await readStory(id);
     setIsRead(true);
     setUpdatedLibrary(!updatedLibrary);
   }
-
-  async function handleUnreadBook() {
-    // setIsRead(false);
-    await unReadStory(id);
-    setIsRead(false);
-    setUpdatedLibrary(!updatedLibrary);
-  }
-
   return (
     <div className="story-card">
       <Link to={`/detail/${id}`}>
@@ -54,10 +46,10 @@ export default function LibraryBook({
           Delete from Library{' '}
         </button>
         <div>
-          <button onClick={handleReadBook} className="button-54" role="button">
+          <button onClick={() => handleReadBook(true)} className="button-54" role="button">
             I finished it!
           </button>
-          <button onClick={handleUnreadBook} className="button-54" role="button">
+          <button onClick={() => handleReadBook(false)} className="button-54" role="button">
             Need to read!
           </button>
         </div>

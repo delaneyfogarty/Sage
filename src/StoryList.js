@@ -14,7 +14,6 @@ export default function StoryList({ stories }) {
           id={StoryCardEl.id}
         />
       ))}
-      {''}
     </main>
   );
 }

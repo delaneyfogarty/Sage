@@ -34,6 +34,7 @@ export default function DetailPage() {
           Convert Text
         </button>
         {loadedStory ? (
+          // nice work on figuring this out--not super intuitive!
           <>
             <div dangerouslySetInnerHTML={{ __html: loadedStory }} />
           </>

@@ -30,10 +30,7 @@ export default function Library() {
 
   useEffect(() => {
     fetchFavorites();
-  }, []);
-
-  useEffect(() => {
-    fetchFavorites();
+    // this should fetch on mount as well, so i don't think we need 2 useEffects
   }, [updatedLibrary]);
 
   // async function handleClick() {

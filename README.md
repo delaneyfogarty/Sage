@@ -1,4 +1,4 @@
-# SAGE
+# Sage
 
 Using React, CSS, and the Bionic Reading API, Sage takes popular children's short stories and converts them into more readable text using artificial fixation points. 
 
